@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'עמוד הבית' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('homepage.static', filename='css/homepage.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <aside>
+        <br/>
+        <h1>התחבר למערכת</h1>
+        {% if tab_name=="true" %}
+            <span class = "user-not-found"> כתובת אימייל או סיסמה שגויים  </span>
+        {% endif %}
+        <div class = aside-form>
+            <form method = "POST" action="/log_in_form">
+                <br/><br/>
+                <input type="text" placeholder="כתובת אימייל" name="Email" required>
+
+                <input type="password" placeholder="סיסמה" name="Password" required>
+
+                <button type="submit" class ="login-btn Button">התחבר</button>
+                <br/>
+                <br/>
+            </form>
+        </div>
+        <button class ="signup-btn button" type="button"> <a href="/sign_up"><b>הצטרפו</b></a></button>
+        <br/>
+    </aside>
+    <div class="mid-section">
+        <div class="behind-about">
+            <div class="about">
+                <span class="about-desc">מי אנחנו?</span>
+                <br/>
+                <br/>
+                <span class="descrp">                סיוע וירטואלי לפתרון תרגילים בנושא חשבון דיפרנציאלי כהכנה לבגרות 805</span>
+            </div>
+        </div>
+        <div>
+            <img class = "hp-img" src="{{ url_for('homepage.static', filename='media/img/computer.png') }}" alt="תמונה של תלמיד לומד במחשב" >
+        </div>
+    </div>
+
+{% endblock %}

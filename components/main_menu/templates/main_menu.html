@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="{{ url_for('main_menu.static', filename='css/main-menu.css') }}"/>
+
+{% if session.logged_in %}
+
+    <div class="topnav topnav-dl logged-topnav">
+        <div class= "profile-link">
+            <a class = "topnav-href-text" href="/profile"
+                {%  if "/profile" == request.path %}
+                    id="active"
+                {% endif %}>
+                <span>   שלום   {{session.user['FirstName'] }} ! </span>
+                <span class="smaller">כניסה לאזור האישי</span>
+            </a>
+        </div>
+        <dl class="logged-dl">
+            <li><a class = "topnav-href-text" href="/mainpage"
+                    {%  if "/mainpage" == request.path %}
+                   id="active"
+                    {% endif %}
+            >ראשי</a></li>
+
+            <li><a class = "topnav-href-text" href="/about"
+                    {%  if "/about" == request.path %}
+                   id="active"
+                    {% endif %}
+            >אודות</a></li>
+
+            <li><a class = "topnav-href-text" href="/contact"
+                    {%  if "/contact" == request.path %}
+                   id="active"
+                    {% endif %}
+            >צרו קשר</a></li>
+
+            <li> <a href="/log_out" onclick="return confirm('האם אתה בטוח שאתה רוצה להתנתק?');"> התנתק </a></li>
+
+        </dl>
+    </div>
+{% else %}
+
+    <dl class="topnav topnav-dl" >
+        <li><a class = "topnav-href-text" href="/homepage"
+                {%  if "/homepage" == request.path %}
+               id="active"
+                {% endif %}
+        >דף הבית</a></li>
+        <li><a class = "topnav-href-text" href="/about"
+                {%  if "/about" == request.path %}
+               id="active"
+                {% endif %}
+        >אודות</a></li>
+        <li><a class = "topnav-href-text" href="/contact"
+                {%  if "/contact" == request.path %}
+               id="active"
+                {% endif %}
+        >צרו קשר</a></li>
+
+    </dl>
+    <div class="button" id="join-btn">
+        <button class="Button" type="button"><a class = "topnav-href-text" href="/sign_up">הצטרפו עכשיו</a></button>
+    </div>
+
+{% endif %}
+
+<script src="{{ url_for('main_menu.static', filename='js/main_menu.js') }}"></script>

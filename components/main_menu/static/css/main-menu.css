@@ -1,0 +1,69 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+
+.topnav{
+    margin-bottom: -0.4%;
+    margin-top: 0.8%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: darkcyan;
+    position: absolute;
+    bottom: 0;
+    height: 62px;
+    align-items:center;
+}
+
+.topnav a:hover {
+    color: black;
+}
+
+dl li::before {
+    content: "|";
+    padding-right: 15px;
+    padding-left: 10px;
+}
+
+dl {
+    list-style: none;
+    padding: 0;
+}
+
+dl li:nth-child(1):before {
+    display: none;
+}
+
+#join-btn{
+    position: absolute;
+    left: 5px;
+    bottom: -3px;
+}
+
+/*------logged--------*/
+
+.logged-dl{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 20px;
+}
+
+.logged-topnav{
+    justify-content: center;
+}
+.smaller{
+    font-size: 15px;
+}
+
+#active{
+    color: black;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .profile-link {
+        position: absolute;
+        right: 5%;
+    }
+}
+
+

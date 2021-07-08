@@ -1,0 +1,62 @@
+
+.form input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+
+.form .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+.bold{
+    color: var(--div-gree-text);
+    margin: 20px 100px 40px;
+    font-size: 20px;
+    width: fit-content;
+
+}
+
+h2{
+    font-size: 48px;
+    color: var(--title-color);
+    text-shadow: -1px 0 var(--title-color), 0 1px var(--title-color), 1px 0 var(--title-color), 0 -1px var(--title-color);
+    padding: 5px;
+    margin: 20px 100px;
+    background-color: white;
+    width: fit-content;
+}
+
+
+.user-not-found{
+    color: red;
+}
+
+
+input{
+    display: block;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 500px;
+    height: 30px;
+}
+
+form{
+    margin-top: 30px;
+    margin-right: 100px;
+    padding-bottom: 60px;
+    border: #000000;
+}
+
+
+.login-btn.Button{
+    float: right;
+}
+
+main{
+    height: 75%;
+}

@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'פרופיל' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('profile.static', filename='css/profile.css') }}"/>
+
+{% endblock %}
+
+{% block page_body_main_content %}
+    <h2>אזור אישי</h2>
+    <div class = "description">
+            <section class="private-dit">
+                <h3>פרטים אישיים</h3>
+                <hr class="line">
+                <br>
+                <br>
+
+                <form method = "POST" action="/">
+                    <label for="Email">כתובת אימייל</label>
+                    <br>
+                    <input type="text" placeholder="{{session.user['Email']}}" name="Email" required readonly>
+                    <br>
+                    <label for="first-name">שם פרטי</label>
+                    <label for="last-name">שם משפחה</label>
+                    <br>
+                    <input class="name" type="first-name" placeholder="{{session.user['FirstName']}}" name="first-name" required readonly>
+                    <input class="name" type="last-name" placeholder="{{session.user['LastName']}}" name="last-name" required readonly>
+                    <br>
+                    <label for="city">עיר</label>
+                    <label for="school">בית ספר</label>
+                    <br>
+                    <input class="city" type="city" placeholder="{{session.user['City']}}" name="city" required readonly>
+                    <input class="school" type="school" placeholder="{{session.user['School']}}" name="school" required readonly>
+                    <br>
+                    <label for="phone-number">מספר טלפון</label>
+                    <br>
+                    <input type="phone-number" placeholder="{{session.user['PhoneNumber']}}" name="phone-number" required readonly>
+                </form>
+                <br>
+            </section>
+
+            <section class="progression">
+                <h3>פעילות</h3>
+                <hr class="line">
+                <div class="progress-div">
+                    <br>
+
+                    <p>   <u>תאריך התחברות אחרון למערכת:</u> </p>
+                        <span class ="last-entry">{{LastEntry}} </span>
+                    <br>
+                    <br>
+
+                    <p>  <u>אחוז הרמזים שהמערכת סיננה עבורך: </u>  </p>
+
+                    <div class="w3-border">
+                        <div class="bar w3-center" style="height:24px;width:{{filteredPercentage | float}}%">{{filteredPercentage}}%</div>
+                    </div>
+                    <br>
+                    <br>
+{#                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>#}
+                    <p><u>מספר התרגילים שבוצעו:</u>                    </p>
+
+                    <table id="q-graph">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th class="sqrt">שורש</th>
+                            <th class="rational">מנה</th>
+                            <th class="non">ללא מנה/שורש</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="qtr" id="q1">
+                            <th scope="row">פולינום</th>
+                            <td class="sqrt bar" style="height: {{poly[0] | float}}em;"><p>
+                                {% if poly[0]|int > 1%}
+                                    {{poly[0]|int}}
+                                {% endif%}
+
+                            </p></td>
+                            <td class="rational bar" style="height: {{poly[1] | float}}em;"><p>
+                                {% if poly[1]|int > 1%}
+                                    {{poly[1]|int}}
+                                {% endif%}
+                            </p></td>
+                            <td class="non bar" style="height: {{poly[2] | float}}em;"><p>
+                                {% if poly[2]|int > 1%}
+                                    {{poly[2]|int}}
+                                {% endif%}
+                            </p></td>
+                        </tr>
+                        <tr class="qtr" id="q2">
+                            <th scope="row">מעריכית</th>
+                            <td class="sqrt bar" style="height: {{exp[0] | float}}em;"><p>
+                                {% if exp[0]|int > 1%}
+                                    {{exp[0]}}
+                                {% endif%}
+                               </p></td>
+                            <td class="rational bar" style="height: {{exp[1] | float}}em;"><p>
+                                {% if exp[1]|int > 1%}
+                                    {{exp[1]}}
+                                {% endif%}
+                            </p></td>
+                            <td class="non bar" style="height: {{exp[2] | float}}em;"><p>
+                                {% if exp[2]|int > 1%}
+                                    {{exp[2]}}
+                                {% endif%}
+                            </p></td>
+                        </tr>
+                        <tr class="qtr" id="q3">
+                            <th scope="row">לוגריתמית</th>
+                            <td class="sqrt bar" style="height: {{log[0] | float}}em;"><p>
+                                {% if log[0]|int > 1%}
+                                    {{log[0]}}
+                                {% endif%}
+                            </p></td>
+                            <td class="rational bar" style="height: {{log[1] | float}}em;"><p>
+                                {% if log[1]|int > 1%}
+                                    {{log[1]}}
+                                {% endif%}
+                            </p></td>
+                            <td class="non bar" style="height:{{log[2] | float}}em;"><p>
+                                {% if log[2]|int > 1%}
+                                    {{log[2]}}
+                                {% endif%}
+                            </p></td>
+                        </tr>
+                        <tr class="qtr" id="q4">
+                            <th scope="row">טריגונומטרית</th>
+                            <td class="sqrt bar" style="height: {{trigo[0] | float}}em;"><p>
+                                {% if trigo[0]|int > 1%}
+                                    {{trigo[0]}}
+                                {% endif%}
+                            </p></td>
+                            <td class="rational bar" style="height: {{trigo[1] | float}}em;"><p>
+                                {% if trigo[1]|int > 1%}
+                                    {{trigo[1]}}
+                                {% endif%}
+                            </p></td>
+                            <td class="non bar" style="height: {{trigo[2] | float}}em;"><p>
+                                {% if trigo[2]|int > 1%}
+                                    {{trigo[2]}}
+                                {% endif%}
+                            </p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+{#                    <div id="ticks">#}
+{#                        <div class="tick" style="height: 5em;"><p></p></div>#}
+{#                        <div class="tick" style="height: 5em;"><p></p></div>#}
+{#                        <div class="tick" style="height: 5em;"><p></p></div>#}
+{#                        <div class="tick" style="height: 5em;"><p></p></div>#}
+{#                        <div class="tick" style="height: 5em;"><p></p></div>#}
+{#                    </div>#}
+                </div>
+                <br>
+                <br>
+                <br>
+            </section>
+        </div>
+
+{% endblock %}
+
+{% block page_body_footer %}{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('profile.static', filename='js/profile.js') }}"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+{% endblock %}
+
+
+
+
+

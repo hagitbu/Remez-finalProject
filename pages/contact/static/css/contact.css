@@ -1,0 +1,88 @@
+h3{
+    font-size: 28px;
+    color: var(--title-color);
+
+}
+
+.bold{
+    color: var(--div-gree-text);
+    margin: 20px 100px;
+    text-shadow: -1px 0 var(--div-gree-text), 0 1px var(--div-gree-text), 1px 0 var(--div-gree-text), 0 -1px var(--div-gree-text);
+    font-size: 20px;
+    background-color: white;
+    width: fit-content;
+}
+
+h2{
+    font-size: 48px;
+    color: var(--title-color);
+    text-shadow: -1px 0 var(--title-color), 0 1px var(--title-color), 1px 0 var(--title-color), 0 -1px var(--title-color);
+    padding: 5px;
+    margin: 20px 100px;
+    background-color: white;
+    width: fit-content;
+}
+
+div {
+    display: flex;
+}
+
+.description{
+    color: black;
+
+}
+
+input, textarea{
+    padding: 6px;
+    margin-top: 6px;
+    width: 400px;
+    height: 40px;
+}
+
+.name{
+    padding: 6px;
+    margin-top: 6px;
+    width: 197px;
+    height: 40px;
+}
+
+textarea{
+    resize: none;
+    height: 150px;
+}
+
+label{
+    display: inline-block;
+    width: 197px;
+}
+
+.contact-right{
+    margin: 0px 130px;
+}
+
+.contact-left{
+    margin: 30px 100px;
+}
+
+.colorlink{
+    color: var(--div-gree-text);
+    text-decoration: none;
+}
+
+.contact-dit{
+    color: var(--div-gree-text);
+    margin: 0px 8px 30px;
+}
+
+.fa-whatsapp{
+    color: lawngreen;
+}
+
+.fa-phone{
+    color: dodgerblue;
+}
+@media screen and (max-width: 1100px) {
+    .contact-right {
+        margin: 0px;
+    }
+}

@@ -1,0 +1,105 @@
+@import "variables.css";
+@import "main-menu.css";
+
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial ;
+    min-width: 750px;
+}
+
+.button{
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 12px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+header a{
+    color: var(--header-sub-text);
+    width: fit-content;
+}
+
+.description{
+    background-color: var(--description-color);
+    text-align: right;
+    height: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: solid 3px white;
+}
+
+.Button {
+    border-radius: 10px;
+    background-color: var(--button-color);
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    padding: 12px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    float: left;
+}
+
+.Button:hover {
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.1), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.logo{
+    height: 90px;
+    width:200px;
+    margin: 10px 10px 50px 10px;}
+
+
+/*------general--------*/
+header, footer{
+    background-color: lightseagreen;
+    display: flex;
+    justify-content: center;
+    color: var(--header-text) ;
+    font-size: 150%;
+    position: relative;
+}
+
+/*------footer--------*/
+footer span{
+    color: var(--header-sub-text) ;
+}
+footer .icon{
+    padding: 0.7%;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+}
+/*------icons and buttons--------*/
+.icon{
+    background-color: transparent;
+    border: none;
+    color: var(--header-sub-text);
+    cursor: pointer;
+
+}
+
+/*------background--------*/
+
+body{
+    background-image: url("/static/media/img/background.png");
+
+}
+body, html {
+    height: 100%;
+    margin: 0;
+}

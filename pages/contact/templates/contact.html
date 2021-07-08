@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'צרו קשר' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('contact.static', filename='css/contact.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <h2>צרו קשר</h2>
+    <p class="bold">נשמח לשמוע מכם</p>
+    <div class="description">
+        <div class="contant">
+            <section class="contact-right">
+                <h3>פרטי יצירת קשר</h3>
+                <div>
+                    <i class="fa fa-phone fa-2x"></i>
+                    <p class="contact-dit">
+                        <b>מוקד התמיכה הטכנית שלנו</b>
+                        <span> זמין עבורכם בימים א'-ה' בין השעות 08:00-20:00</span>
+                        <a class="colorlink" href="tel:0524561024"> בטלפון שמספרו 052-4561024</a>
+                    </p>
+                </div>
+                <div>
+                    <i class="fa fa-whatsapp fa-2x"></i>
+                    <p class="contact-dit">
+                        <b> אפשר לפנות אלינו ב-Whatsapp -</b>
+                        <a class="colorlink" href="tel:0525282684">למספר 052-5282684. </a>
+                        <span>הכניסו את המספר לרשימת אנשי הקשר שלכם (*המספר נועד לשליחת הודעת וואטסאפ, ולא לשיחת טלפון)</span>
+                    </p>
+                </div>
+            </section>
+            <section class="contact-left">
+                <form method = "POST" action="/">
+                    <label for="Email">כתובת אימייל</label>
+                    <br>
+                    <input type="text"  name="Email" readonly
+                            {%  if session.logged_in %}
+                                placeholder= "{{session.user['Email']}}" name="Email" readonly
+                            {% endif %}
+                    >
+                    <br>
+                    <label for="first-name">שם פרטי</label>
+                    <label for="last-name">שם משפחה</label>
+                    <br>
+                    <input class="name" type="text" name="first-name" readonly
+                            {%  if session.logged_in %}
+                           placeholder= "{{session.user['FirstName']}}"
+                            {% endif %}
+                    >
+                    <input class="name" type="text" name="last-name" readonly
+                            {%  if session.logged_in %}
+                           placeholder= "{{session.user['LastName']}}"
+                            {% endif %}
+                    >
+                    <br>
+                    <label for="phone-number">מספר טלפון</label>
+                    <br>
+                    <input type="text" name="phone-number" readonly
+                            {%  if session.logged_in %}
+                           placeholder= "{{session.user['PhoneNumber']}}"
+                            {% endif %}
+                    >
+                    <br>
+                    <label for="subject">נושא</label>
+                    <br>
+                    <input type="subject" name="subject" required>
+                    <br>
+                    <label for="message">הודעה</label>
+                    <br>
+                    <textarea type="message" name="message" required></textarea>
+                    <button type="submit" class="Button" onclick="messageSend()">שלח</button>
+                </form>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_body_footer %}{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('contact.static', filename='js/contact.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'התנתקות' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('log_in.static', filename='css/log_in.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <div class="main-container">
+        <h2>התחבר למערכת</h2>
+        <div class="description">
+            <p class="bold">נא מלא את השדות על מנת להתחבר לאתר.</p>
+
+            <form method = "POST" action="/log_in_form_2">
+                <br/>
+                <input type="text" placeholder="כתובת אימייל" name="Email" required>
+
+                <input type="password" placeholder="סיסמה" name="Password" required>
+
+                <button type="submit" class ="login-btn Button">התחבר</button>
+                {% if tab_name=="true" %}
+                    <span class = "user-not-found">* כתובת אימייל או סיסמה שגויים  </span>
+                {% endif %}
+                <br/>
+                {#                <a href="/"><b>שכחתי סיסמה</b></a>#}
+
+            </form>
+            <br/>
+            <br/>
+            <br/>
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+{% block page_body_footer %}{% endblock %}
+
+{% block page_body_js %}
+{% endblock %}

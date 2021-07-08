@@ -1,0 +1,57 @@
+
+
+.teacher{
+    align-self:flex-end;
+    z-index: 1;
+    height: 450px;
+    position: absolute;
+    left: 10%;
+    max-height: 70%;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    align-content:center;
+    height: 85%;
+}
+
+.mid-sec{
+    margin: auto;
+    width: 50%;
+    background-color: #cbf3f0;
+    border-left: solid 3px white;
+    border-right: solid 3px white;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    height: 100%;
+}
+
+.start-btn, .continue-btn{
+    box-shadow: 1px 1px 10px #3e3e3e;
+    padding: 15px 40px 15px 40px;
+    margin: 3%;
+    width: fit-content;
+}
+main a{
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+
+}
+.start-btn{
+    font-size: 35px;
+}
+
+.button:hover{
+    color: #3e3e3e;
+}
+
+@media screen and (max-width: 850px) {
+    .teacher {
+        position: relative;
+        max-height: 90%
+    }
+}

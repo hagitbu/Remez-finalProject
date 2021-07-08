@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'עמוד ראשי' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('mainpage.static', filename='css/mainpage.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <div class = "mid-sec">
+        <button class="start-btn Button" type="submit">
+            <a href="/clue">
+                התחל תרגיל חדש
+            </a>
+        </button>
+        <button class="continue-btn Button" type="submit">
+            <a href="/profile">
+                כניסה לאזור האישי
+            </a>
+        </button>
+        <br><br><br>
+    </div>
+    <img  class ="teacher" src="{{ url_for('clue.static', filename='media/img/teacher.png') }}" alt="מורה" >
+
+{% endblock %}

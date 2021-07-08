@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'רמזים' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('clue.static', filename='css/clue.css') }}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href='http://serve.fontsproject.com/css?family=Shuneet:400,500' rel ='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+    {% if stages %}
+        <aside>
+            <ol class="nesting-list">
+                {% for stage in stages %}
+                    <li class="nesting-li"><a
+                            {%  if clue_id=='chooseFunc' or clue_id=='chooseSubFunc' %}
+                                class="not-clue"
+                                onklick = "javacript: return false;"
+                            {% elif current_stage == stage[0]%}
+                                id="active-aside"
+                            {% else %}
+                                href="/clue?stage={{stage[0]}}"
+                            {% endif %}>{{stage[0]}}
+                        </a>
+                        {% if stage[1] %}
+                            <ol class="nested-list " type="i">
+                            {% for i in range(1, stage|length) %}
+                                <li class="nested-li"><a
+                                    {%  if clue_id=='chooseFunc' or clue_id=='chooseSubFunc'%}
+                                        class="not-clue"
+                                        onklick = "javascript: return false;"
+                                    {% elif current_sub_stage == stage[i]%}
+                                        id="active-aside"
+                                    {% else %}
+                                    href="/clue?stage=True&subStage={{stage[i]}}"
+                                    {% endif %}>{{stage[i]}}</a>
+                            {% endfor %}
+                            </ol>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
+        </aside>
+    {% endif %}
+
+    <div class="mid-sec">
+        <div class="board">
+            <img class="board-img" src="{{ url_for('clue.static', filename='media/img/board.png') }}" alt="לוח גיר">
+            {%  if current_stage %}
+                <div class="stage">
+                    {{ current_stage }} :
+                </div>
+            {% endif %}
+            <div class="clue">
+                {{ clue }}
+            </div>
+            {%  if clue_info or clue_img %}
+                <div class="info">
+                    <button class="hover-info" ><i class="fa fa-info-circle fa-2x"></i></button>
+                    <div class="bubble info-bubble">
+                        <div class="info-bubble-content">
+                            {%  if clue_info %}
+                                <p>{{ clue_info }}</p>
+                            {% endif %}
+                            {%  if clue_img%}
+                                <img class = "clue-img" src="{{ url_for('clue.static', filename='media/img/clues_img/'+clue_img) }}"
+                                             alt="נוסחה לרמז">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="answers">
+            {% if clue_id=='chooseFunc' %}
+                {% for func in type_function %}
+                    <button
+                            {% if func.FunctionName=='טריגונומטרית' %}
+                                class="answer-button not-clue"
+                                onklick = "javacript: return false;"
+                            {% else %}
+                                class="answer-button"
+                                onclick="window.location='/clue?func_type= {{ func.FunctionName }}';"
+                            {% endif %}
+                            type="submit">
+                        {{ func.FunctionName }}
+                    </button>
+                {% endfor %}
+
+            {% elif clue_id=='chooseSubFunc' %}
+                {% for func in type_function %}
+                    <button class="answer-button" onclick="window.location='/clue?subFunc_type= {{ func.SubFunctionName }}';" type="submit">
+                        {{ func.SubFunctionName }}
+                    </button>
+                {% endfor %}
+
+            {% elif done == True %}
+                    <button class="start-ovr-btn Button" onclick="window.location='/clue';" type="submit">
+                        התחל תרגיל חדש
+                    </button>
+                {%  if reset_grade_option %} {# show option to reset the grades #}
+                    <button class="reset-btn Button" onclick="window.location='/clue?reset_grade=True';" type="submit">
+                             אפס רמזים
+                    </button>
+                {% endif %}
+            {% elif reset_grade_option%}
+                <button class="reset-btn Button" onclick="window.location='/clue?reset_topic_grade=True&current_sub_stage={{ current_sub_stage }}&current_stage={{ current_stage }}';" type="submit">
+                    אפס רמזים
+                </button>
+            {% else %}
+                {% for ans in answers %}
+                    <button
+                            {% if session.random and ans.AnswerID==3%}
+                                class="answer-button not-clue"
+                                onklick = "javascript: return false;"
+                                title="לא ניתן לעבור סעיף כאשר הרמזים בסדר רנדומלי"
+                            {% else %}
+                                class="answer-button"
+                                onclick="window.location='/clue?pre_clue_id={{ clue_id }}&answer={{ ans.AnswerID }}';"
+                            {% endif %}
+                             type="submit">
+                        {{ ans.Answer }}
+                    </button>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div class = "teacher-div">
+        {%  if show_bubble %}
+            <div class="bubble speech-bubble" onclick="this.remove()">
+                <button class = "close-btn" onclick="parentNode.remove()"><i class="fa fa-close fa-2x"></i></button>
+                {%  if done %}
+                    כל הכבוד סיימת את התרגיל! אם קיבלת תשובה שאינה נכונה חזור אחורה בעזרת התפריט ובדוק היכן יתכן שטעית.
+                {% else %}
+                    אם בסעיף קודם יצאה לך תשובה לא נכונה, חזור אחורה בעזרת התפריט ובדוק היכן יתכן שטעית.
+                {% endif %}
+            </div>
+        {% endif %}
+        <img class="teacher" src="{{ url_for('clue.static', filename='media/img/teacher.png') }}" alt="מורה">
+    </div>
+
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('clue.static', filename='js/clue.js') }}"></script>
+{% endblock %}

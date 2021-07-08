@@ -1,0 +1,83 @@
+@import "/finalProject/static/css/header_footer.css";
+@import "/finalProject/static/css/generalStyle.css";
+
+
+h2{
+    font-size: 48px;
+    color: var(--title-color);
+    text-shadow: -1px 0 var(--title-color), 0 1px var(--title-color), 1px 0 var(--title-color), 0 -1px var(--title-color);
+    padding: 5px;
+    margin: 20px 100px;
+    background-color: white;
+    width: fit-content;
+}
+
+h3{
+    font-size: 28px;
+    color: var(--title-color);
+    display: flex;
+    justify-content: center;
+}
+
+.fa-3x{
+    color: var(--title-color);
+    display: flex;
+    justify-content: center;
+}
+
+.fa-user-circle{
+    width: 45px;
+    color: var(--title-color);
+}
+
+.fa-pencil{
+    width: 45px;
+    color: limegreen;
+}
+
+.fa-lightbulb-o{
+    margin: 0px 8px;
+    width: 30px;
+    color: var(--button-color);
+}
+
+.fa-bar-chart{
+    width: 45px;
+    color: crimson;
+}
+
+.work-dit{
+    color: var(--div-gree-text);
+    margin: 0px 10px 30px;
+}
+
+.working-div{
+    display: flex;
+}
+
+.how-it-works{
+    margin: 0px 130px;
+}
+
+.about-us{
+    display: flex;
+}
+
+.left, .center, .right{
+    margin: 20px 100px;
+    color: var(--div-gree-text);
+    text-align: center;
+}
+
+.click-here{
+    text-decoration: underline;
+    color: var(--title-color);
+}
+
+@media screen and (max-width: 1200px) {
+    .left, .center, .right{
+        margin: 20px 30px;
+        color: var(--div-gree-text);
+        text-align: center;
+    }
+}

@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'עמוד הבית' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('question.static', filename='css/question.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <aside>
+        <ol class="nesting-list">
+            <li onclick="clickLi(this)" class="nesting-li" >בחירת סוג הפונקציה</li>
+
+            <li class="nesting-li " onclick="clickLi(this)" >תחום הגדרה
+                <ol type="i" class="nested-list not-clicked">
+                    <li>תחום הגדרה1111</li>
+                    <li>תחוםhghg הגדרה</li>
+                    <li>תחוםgg הגדרה</li>
+                </ol>
+            </li>
+
+
+
+            <li class="nesting-li" onclick="clickLi(this)" >נקודות חיתוך עם הצירים
+                <ol type="i" class="nested-list not-clicked">
+                    <li>תחsssssssום הגדרה</li>
+                    <li>תחsssום הגדרה</li>
+                    <li>תחוsfsdsם הגדרה</li>
+                    <li>תfdgfhחום הגדרה</li>
+                </ol>
+            </li>
+            <li class="nesting-li" onclick="clickLi(this)">אסימפטוטות
+                <ol type="i" class="nested-list not-clicked">
+                    <li>תחום הגדרה</li>
+                    <li>תחום הגדרה</li>
+                    <li>תחום הגדרה</li>
+                    <li>תחום הגדרה</li>
+                </ol>
+            </li>
+            <li class="nesting-li" onclick="clickLi(this)">נקודות קיצון
+                <ol  type="i" class="nested-list not-clicked">
+                    <li>תחוsssם הגדרה</li>
+                    <li>תחום הגדרה</li>
+                    <li>תחssdsום הגדרה</li>
+                    <li>תחsdום הגדרה</li>
+                    <li>תחsdום הגssssדרה</li>
+                    <li>תחsdfdfdfום הגדרה</li>
+                </ol>
+            </li>
+            <li class="nesting-li" onclick="clickLi(this)">תחומי עליה וירידה
+                <ol type="i" class="nested-list not-clicked">
+                    <li>תחוfffם הגדרה</li>
+                    <li>תחוםf fgffg</li>
+                </ol>
+            </li>
+            <li class="nesting-li" onclick="clickLi(this)">נקודת פיתול ותחומי קמירות
+                <ol type="i" class="nested-list not-clicked">
+                    <li>תחוsssם הגדרה</li>
+                    <li>תחום הגדרה</li>
+                    <li>תחssdsום הגדרה</li>
+                    <li>תחsdום הגדרה</li>
+                    <li>תחsdום הגssssדרה</li>
+                    <li>תחsdfdfdfום הגדרה</li>
+                </ol>
+            </li>
+            <li class="nesting-li" onclick="clickLi(this)">שרטוט סקיצה
+                <ol type="i" class="nested-list not-clicked">
+                    <li>תחום הגדרdsdsה</li>
+                    <li>תחוםdsd הגדרה</li>
+                    <li>תssחום הגדרה</li>
+                </ol>
+            </li>
+        </ol>
+    </aside>
+
+    <div class = "mid-sec">
+        <div class = "board">
+            <img class="board-img" src="{{ url_for('question.static', filename='media/img/board.png') }}" alt="לוח גיר" >
+            <div class = "question">
+                שאלה בנושא חדוא?</div>
+        </div>
+
+        <div class="answers">
+            <button class="answer-button" type="submit">
+                <img src="{{ url_for('question.static', filename='media/img/infoSign.png') }}" alt="עוד מידע" >
+                תשובה 1</button>
+            <button class="answer-button" type="submit">
+                <img src="{{ url_for('question.static', filename='media/img/infoSign.png') }}" alt="עוד מידע" >
+                תשובה 2</button>
+            <button class="answer-button" type="submit">
+                <img src="{{ url_for('question.static', filename='media/img/infoSign.png') }}" alt="עוד מידע" >
+                תשובה 3</button>
+            <button class="answer-button" type="submit">
+                <img src="{{ url_for('question.static', filename='media/img/infoSign.png') }}" alt="עוד מידע" >
+
+                תשובה 4</button>
+            <button class="answer-button" type="submit">
+                <img src="{{ url_for('question.static', filename='media/img/infoSign.png') }}" alt="עוד מידע" >
+
+                תשובה 5</button>
+            <button class="answer-button" type="submit">
+                <img src="{{ url_for('question.static', filename='media/img/infoSign.png') }}" alt="עוד מידע" >
+
+                תשובה 6</button>
+
+        </div>
+    </div>
+    <img  class ="teacher" src="{{ url_for('question.static', filename='media/img/teacher.png') }}" alt="מורה" >
+
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('question.static', filename='js/question.js') }}"></script>
+{% endblock %}

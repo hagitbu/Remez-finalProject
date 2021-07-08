@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'הרשמה' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('sign_up.static', filename='css/sign_up.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <div class="main-container">
+        <h2>הרשמה</h2>
+        <div class="description">
+            <p class="bold">נא מלא את כל השדות על מנת ליצור משתמש באתר.</p>
+
+            <form method = "POST" action="/sign_up_form">
+                        <label for="email"><b>
+                            כתובת אימייל  </b>
+                            {% if tab_name=="true" %}
+                                <span class = "existing-email">        קיים משתמש עבור כתובת אימייל זו   </span>
+                            {% endif %}
+                        </label>
+                        <input type="text" name="Email" required>
+
+                        <label for="first-name"><b>שם פרטי</b></label>
+                        <input type="text" name="FirstName" required>
+
+                        <label for="last-name"><b>שם משפחה</b></label>
+                        <input type="text" name="LastName" required>
+
+                        <label for="city"><b>עיר</b></label>
+                        <input type="text" name="City" required>
+
+                        <label for="school"><b>בית ספר</b></label>
+                        <input type="text" name="School" required>
+
+                        <label for="phone-number"><b>טלפון</b></label>
+                        <input type="text" name="PhoneNumber" required>
+
+                        <label for="psw"><b> סיסמה (עד 8 תווים) </sub> </b></label>
+                        <input type="password" name="Password" maxlength="8" required>
+                        <br/>
+                        <div class="clearfix">
+                            <button type="submit" class="Button sign-btn">הירשם</button>
+                             <br/><br/><br/><br/>
+                            <a href="/homepage"><button type="button" class="Button sign-btn back-btn">חזור</button></a>
+                        </div>
+                    </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'אודות' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('about.static', filename='css/about.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <h2>אודות</h2>
+    <div class="description">
+        <h3>מי אנחנו?</h3>
+        <div class="about-us">
+            <div class="right">
+                <i class="fa fa-calculator fa-3x"></i>
+                <p>
+                    REMEZ היא מערכת תומכת למידה העוזרת לתלמידי כיתות י"ב ברמת 4 יחידות (שאלון 805) להצליח לפתור
+                    את התרגילים השונים בתחום חקירת פונקציות ללא הצגת פתרון התרגיל וללא הגבלה
+                </p>
+            </div>
+            <div class="center">
+                <i class="fa fa-graduation-cap fa-3x"></i>
+                <p>
+                    מערכת זו פותחה על ידי גל-מרגלית יצחקי וחגית בודה, סטודנטיות במחלקה להנדסת תעשייה וניהול
+                    באוניברסיטת בן-גוריון בנגב, במסגרת פרויקט גמר בהנחיית ד"ר דוד קודיש ופרופ' גלעד רביד
+                </p>
+            </div>
+            <div class="left">
+                <i class="fa fa-gears fa-3x"></i>
+                <p>
+                    מטרת המערכת להעניק ידע וכלים למשתמש לפתרון כל תרגיל בו הוא נתקל.
+                    אנו רואים ערך עליון בפיתוח החשיבה המתמטית בקרב בני הנוער
+                    ככלי להתמודדות עם מגוון בעיות בחיי היום-יום
+                </p>
+            </div>
+        </div>
+        <h3>איך זה עובד?</h3>
+        <div class="how-it-works">
+            <div class="working-div">
+                <i class="fa fa-user-circle fa-2x"></i>
+                <p class="work-dit">
+                    <b>נרשמים</b>
+                    <span>ללא עלות, בקלות ובמהירות.</span>
+
+                    <a class="click-here" href="/sign_up">הירשם כעת</a>
+                </p>
+            </div>
+            <div class="working-div">
+                <i class="fa fa-pencil fa-2x"></i>
+                <p class="work-dit">
+                    <b>פותרים</b>
+                    <span> כל תרגיל שבא לכם בנושא חקירת פונקציות ברמת שאלון 805</span>
+                </p>
+            </div>
+            <div class="working-div">
+                <i class="fa fa-lightbulb-o fa-2x"></i>
+                <p class="work-dit">
+                    <b>נתקעתם?</b>
+                    <span> התחילו להשתמש בלומדה ובעזרת רמזים נכווין אותכם אל הפתרון בקלות במהירות</span>
+                </p>
+            </div>
+            <div class="working-div">
+                <i class="fa fa-bar-chart fa-2x"></i>
+                <p class="work-dit">
+                    <b>צפו בהתקדמות שלכם</b>
+                    <span>
+                        באזור האישי. כך תוכלו לעקוב אחר ההתקדמות שלכם בלמידה
+                        <br>
+                        ולדעת באילו סעיפים בשלבי החקירה אתם חזקים יותר ובאילו נדרש תרגול נוסף
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_body_footer %}{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('about.static', filename='js/about.js') }}"></script>
+{% endblock %}
